@@ -1,5 +1,7 @@
 # Irmin
-Irmin is a distributed database build on the same principles as git. 
+Irmin is a distributed database build on the same principles as git. It is a library to persist and synchronize distributed data structures both on-disk and in-memory.
+A very nice talk: 
+![Functional Distributed Programming with Irmin](https://www.infoq.com/presentations/irmin)
 ## Features of Irmin
 * Irmin can be used on the top of other storage layer.
 * It supports custom data types. We can build our own data types in Irmin and it supports the features of deserialization and serialization of custom data types. Examples can be found here [custom data types](https://github.com/priyas13/ocaml-irmin).
@@ -24,7 +26,7 @@ Append-only store are read-only store where it is also possible to add values. K
 Read-write store allows us to update and remove elements. In-addition to the functions in read-only store, read-write strore provide these additional functions.
 ![read-write](https://github.com/priyas13/Irmin/blob/master/read-write.png)
 
-Irmin high-level data store is build from Irmin low-level block and tag store. As we discussed about Irmin has persistent data store, hence mutation is only possible in tag store. Tag stores provides the feature of supporting concurrent operations on different branches. 
+Irmin high-level data store is build from Irmin low-level block and tag store. As we discussed about Irmin has persistent data store, hence mutation is only possible in tag store. Tag stores provides the feature of supporting concurrent operations on different branches. As compared to git, tag store in Irmin provide us the feature to name the branches as master, remote, child node etc but in git we need to remember the long hash value. 
 
 Irmin provide command-line support. Due to some reason in the installation, I am not able to run any of the examples. But a good source to understand command-line features of Irmin is [using the command-line](https://zshipko.github.io/irmin-tutorial/UsingTheCommandLine.html)
 
@@ -36,7 +38,7 @@ To create a content type following things are required:
 * A value t of type Irmin.Type.t
 * A function pp for formating t
 * A function of_string for converting from string to t (Because for serialization type t is converted to string)
-* A three way merge function
+* A three way merge function (The result of merge operation is either Ok or a conflict which can be only resolved by the user)
 Hence if we look at the module M in the [set](https://github.com/priyas13/ocaml-irmin/blob/master/set/iset.ml) data type, it has the following things.
 
 There are various examples showing how to build content types in Irmin [here](https://zshipko.github.io/irmin-tutorial/Contents.html)
