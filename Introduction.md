@@ -47,3 +47,5 @@ There are various examples showing how to build content types in Irmin [here](ht
 This custom content type is then used as the content of the store. As we saw in [set](https://github.com/priyas13/ocaml-irmin/blob/master/set/iset.ml), module AO_value is the set data type. Now we see that AO_value can be used as content of an Irmin store (AO_store). 
 
 The block store in Irmin conains the serialized values from both the application contents, tree-nodes and history data. So we could see in the content type signature, we should have of_string function which converts the serialized data back to type t. 
+
+Irmin high-level store is automatically generated over the block-store, a tag-store and the application contents. 
