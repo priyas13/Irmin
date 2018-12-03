@@ -27,6 +27,7 @@ Read-write store allows us to update and remove elements. In-addition to the fun
 ![read-write](https://github.com/priyas13/Irmin/blob/master/read-write.png)
 
 Irmin high-level data store is build from Irmin low-level block and tag store. As we discussed about Irmin has persistent data store, hence mutation is only possible in tag store. Tag stores provides the feature of supporting concurrent operations on different branches. As compared to git, tag store in Irmin provide us the feature to name the branches as master, remote, child node etc but in git we need to remember the long hash value. Tag store is expected to be local to each replica.
+![irmin-store](https://github.com/priyas13/about-Irmin/blob/master/irmin-store.png)
 ![tag-store-sig](https://github.com/priyas13/Irmin/blob/master/tag-store.png)
 
 Irmin provide command-line support. Due to some reason in the installation, I am not able to run any of the examples. But a good source to understand command-line features of Irmin is [using the command-line](https://zshipko.github.io/irmin-tutorial/UsingTheCommandLine.html)
